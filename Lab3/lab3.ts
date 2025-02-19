@@ -313,3 +313,43 @@ console.log("-------------------------------");
 my_car.displayVehicle();
 console.log("-------------------------------");
 bike.displayVehicle();
+
+
+interface VehicleStorage<T extends Vehicle> {
+    creationDate: Date;
+    vehicles: T[];
+    getAllVehicles(): T[];
+}
+
+class VehicleStorageImpl<T extends Vehicle> implements VehicleStorage<T> {
+    creationDate: Date;
+    vehicles: T[];
+
+    constructor() {
+        this.creationDate = new Date();  
+        this.vehicles = []; 
+    }
+
+    addVehicle(vehicle: T): void {
+        this.vehicles.push(vehicle);
+    }
+
+    getAllVehicles(): T[] {
+        return this.vehicles;
+    }
+}
+
+const vehicleStorage = new VehicleStorageImpl<Vehicle_class>();
+
+const car_toyota = new Vehicle_class("Toyota", "Camry", 2022, "1HGCM82633A123456", "A123BC",owner);
+const car_honda = new Vehicle_class("Honda", "Civic", 2023, "1HGCM82633A654321", "B456CD",owner);
+
+vehicleStorage.addVehicle(car_toyota);
+vehicleStorage.addVehicle(car_honda);
+
+const allVehicles = vehicleStorage.getAllVehicles();
+console.log("-------------------------------");
+console.log("Все автомобили в хранилище:");
+allVehicles.forEach(vehicle => vehicle.displayVehicle());
+
+

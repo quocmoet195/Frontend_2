@@ -185,3 +185,15 @@ console.log("-------------------------------");
 my_car.displayVehicle();
 console.log("-------------------------------");
 bike.displayVehicle();
+class VehicleStorageImpl {
+    constructor() {
+        this.creationDate = new Date();
+        this.vehicles = [];
+    }
+    addVehicle(vehicle) {
+        this.vehicles.push(vehicle);
+    }
+    getAllVehicles() {
+        return this.vehicles;
+    }
+}
