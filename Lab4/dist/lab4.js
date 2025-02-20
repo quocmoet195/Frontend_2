@@ -172,7 +172,6 @@ export var Transport;
             this._frameType = frameType;
             this._isSport = isSport;
         }
-        // Getters for the interface properties
         get make() {
             return this._make;
         }
@@ -191,7 +190,6 @@ export var Transport;
         get owner() {
             return this._owner;
         }
-        // Implementing the properties from IMotorbike
         get frameType() {
             return this._frameType;
         }
@@ -221,13 +219,4 @@ export var Transport;
         }
     }
     Transport.VehicleStorageImpl = VehicleStorageImpl;
-    const vehicleStorage = new VehicleStorageImpl();
-    const car_toyota = new Vehicle("Toyota", "Camry", 2022, "1HGCM82633A123456", "A123BC", owner);
-    const car_honda = new Vehicle("Honda", "Civic", 2023, "1HGCM82633A654321", "B456CD", owner);
-    vehicleStorage.addVehicle(car_toyota);
-    vehicleStorage.addVehicle(car_honda);
-    const allVehicles = vehicleStorage.getAllVehicles();
-    //console.log("-------------------------------");
-    //console.log("Все автомобили в хранилище:");
-    //allVehicles.forEach(vehicle => vehicle.displayVehicle());
 })(Transport || (Transport = {}));
